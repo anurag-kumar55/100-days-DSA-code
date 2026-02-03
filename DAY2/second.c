@@ -17,29 +17,38 @@ Input:
 Output:
 10 30 40 50
 */
-
 #include <stdio.h>
 int main() {
     int n, pos;
     int arr[100];
-    
+
+    printf("Program started\n");
+
+    printf("Enter n: ");
     scanf("%d", &n);
-    
+
+    printf("Enter elements:\n");
     for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
-    
+
+    printf("Enter position: ");
     scanf("%d", &pos);
-    
+
+    if (pos < 1 || pos > n) {
+        printf("Invalid position\n");
+        return 0;
+    }
+
     for (int i = pos - 1; i < n - 1; i++) {
         arr[i] = arr[i + 1];
     }
-    
+
+    printf("Result:\n");
     for (int i = 0; i < n - 1; i++) {
-        printf("%d", arr[i]);
-        if (i < n - 2) printf(" ");
+        printf("%d ", arr[i]);
     }
     printf("\n");
-    
+
     return 0;
 }
